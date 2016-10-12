@@ -1,0 +1,13 @@
+{
+    "require-dev": {
+        "phpspec/phpspec": "^3.1",
+        "phpunit/phpunit": "^5.6",
+        "laracasts/integrated": "^0.15.6"
+    },
+
+    "autoload" : {
+      "psr-4" : {
+        "Bit\\" : "src/"
+      }
+    }
+}

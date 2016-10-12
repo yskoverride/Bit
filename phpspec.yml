@@ -1,0 +1,5 @@
+suites:
+  punadi_suite:
+    namespace: Bit
+    psr4_prefix: Bit
+    spec_path: tests
