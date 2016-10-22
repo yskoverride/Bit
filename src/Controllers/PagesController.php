@@ -3,6 +3,7 @@
 namespace Bit\Controllers;
 
 use Bit\Core\Response;
+use Bit\Core\Request;
 use Bit\Core\App;
 
 /**
@@ -13,11 +14,27 @@ class PagesController
   public function home()
   {
     echo "I tried to be Minimal...";
+
   }
 
   public function contact()
   {
-    echo "When you try to contact me look around...";
+    $contacts = App::get('database')->selectAll('contacts');
+
+    Response::view('contact',compact('contacts'));
+  }
+
+  public function contactus()
+  {
+    $name = Request::input('name');
+    $address = Request::input('address');
+
+    $parameters  = array('name' => $name, 'address' => $address);
+
+    App::get('database')->insert('contacts',$parameters);
+
+    header('Location: /contact');
+
   }
 
   public function ranger()
