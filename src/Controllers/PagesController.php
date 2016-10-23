@@ -45,4 +45,29 @@ class PagesController
 
     Response::view('ranger',compact('name'));
   }
+
+  public function profile()
+  {
+    Response::view('profile');
+  }
+
+  public function profileupload()
+  {
+
+    $destination = __DIR__.'/../../uploads';
+
+    try {
+
+      $uploaded = Request::file('file');
+
+      App::get('filesystem')->copy($uploaded, $destination);
+
+    } catch (\Exception $e) {
+
+      echo $e->getMessage();
+    }
+
+
+
+  }
 }

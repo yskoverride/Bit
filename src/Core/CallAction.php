@@ -51,7 +51,7 @@ class CallAction
     {
         if(! class_exists("Bit\\Controllers\\".$newControllerAction[0])) {
 
-          throw new Exception("Controller class does not exist");
+          throw new \Exception("Controller class does not exist");
 
         }
 
@@ -72,7 +72,7 @@ class CallAction
     {
         if (! method_exists($controller , $newControllerAction[1])) {
 
-          throw new Exception("Method does not exist");
+          throw new \Exception("Method does not exist");
 
         }
 

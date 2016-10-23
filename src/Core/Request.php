@@ -24,8 +24,8 @@ class Request
 
     /**
      * gets get and post values
-     * @param  string $value [get and post]
-     * @return mixed        values
+     * @param  string $value [get and post field name]
+     * @return mixed        [values]
      */
     public static function input($value)
     {
@@ -47,7 +47,7 @@ class Request
 
     /**
      * gets all the post variables
-     * @return array $_POST values
+     * @return array $_POST [values]
      */
     public static function all()
     {
@@ -61,6 +61,23 @@ class Request
       }
 
       return $all;
+
+    }
+
+    /**
+     * gets uploaded file
+     * @param  string $value [field name]
+     * @return array        [file properties]
+     */
+    public static function file($value)
+    {
+      if (isset($_FILES[$value])) {
+
+        return $_FILES[$value];
+
+      }
+
+      throw new \Exception("requested file not found");
 
     }
 }
