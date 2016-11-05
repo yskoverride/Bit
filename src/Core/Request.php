@@ -23,11 +23,11 @@ class Request
     }
 
     /**
-     * gets get and post values
-     * @param  string $value [get and post field name]
+     * POST values
+     * @param  string $value [post field name]
      * @return mixed        [values]
      */
-    public static function input($value)
+    public static function request($value)
     {
         if (isset ($_POST[$value])) {
 
@@ -35,14 +35,24 @@ class Request
 
         }
 
+        throw new \Exception("Request not found");
+
+    }
+
+    /**
+     * GET values
+     * @param  string $value [post field name]
+     * @return mixed        [values]
+     */
+    public static function query($value)
+    {
         if (isset ($_GET[$value])) {
 
           return htmlspecialchars($_GET[$value]);
 
         }
 
-        throw new \Exception("Request not found");
-
+        throw new \Exception("Query not found");
     }
 
     /**
