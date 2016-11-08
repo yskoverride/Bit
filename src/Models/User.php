@@ -1,6 +1,6 @@
 <?php
 
-namespace Bit\Core\Auth;
+namespace Bit\Models;
 
 use Bit\Core\Database\QueryBuilder;
 

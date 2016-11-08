@@ -16,10 +16,13 @@ class PagesController
   {
 
       // $users = App::get('database')->select('users',['name','email']);
-    $email = 'Sunil.kumarya4@gmail.com';
-    $query = "Select * from users where email = :email";
 
-    $result = App::get('database')->query($query,[$email]);
+    $email =   'Sunil.kumarya4@gmail.com';
+    $password = '123456a';
+
+    $query = "Update users set password = :password where email = :email";
+
+    $result = App::get('database')->query($query,[$password,$email]);
 
     if (empty($result)) {
       echo "empty";
@@ -35,8 +38,9 @@ class PagesController
   public function loginpage()
   {
 
+
         $user = [ 'email' =>'Sunil.kumarya4@gmail.com',
-                  'password' =>'$2a$06$.av8N5IhAOku927RzFL6vurwcrXrukuFe0iv7VxOdLg43njg3vHPq' ];
+                  'password' => '123456a' ];
 
         App::get('auth')->login($user,'logged');
   }

@@ -4,7 +4,7 @@ use Bit\Core\Database\{Connection,QueryBuilder};
 use Bit\Core\FileHandler\LocalFileHandler;
 use Bit\Core\App;
 use Bit\Core\Sessions;
-use Bit\Core\Auth\User;
+use Bit\Models\User;
 use Bit\Core\Auth\LocalAuthentication;
 
 $configs = require_once __DIR__.'/../../configs.php';

@@ -3,7 +3,7 @@
 namespace Bit\Core\Auth;
 
 use Bit\Core\Sessions;
-use Bit\Core\Auth\User;
+use Bit\Models\User;
 
 /**
  * LocalAuthentication
