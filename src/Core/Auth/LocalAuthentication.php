@@ -31,9 +31,17 @@ class LocalAuthentication implements AuthenticationInterface
 
     try {
 
-      $useremail = $this->user->find($value);
+      $user = $this->user->findFirst($value);
 
-      $this->session->set('user',$useremail);
+      if (empty($user))
+
+      throw new \Exception("Email and password does not match");
+
+      if (! isset($user->email))
+
+      throw new \Exception("Email property not found");
+
+      $this->session->set('user', $user->email);
 
       header("Location: {$destination}");
 

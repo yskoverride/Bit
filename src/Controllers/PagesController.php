@@ -5,7 +5,8 @@ namespace Bit\Controllers;
 use Bit\Core\Response;
 use Bit\Core\Request;
 use Bit\Core\App;
-
+use Bit\Models\User;
+use Bit\Helpers\Helpers;
 
 /**
  * PagesController
@@ -15,34 +16,29 @@ class PagesController
   public function home()
   {
 
-      // $users = App::get('database')->select('users',['name','email']);
+    $user = new User;
 
-    $email =   'Sunil.kumarya4@gmail.com';
-    $password = '123456a';
+    $values = [ 'password' => '123456a',
+                'username' => 'Sushil',
+                'email' => 'sushil.nayak45@gmail.com',
+              ];
+    //
+    // // $conditions = ['id' => 6,
+    //                 ];
 
-    $query = "Update users set password = :password where email = :email";
+    $results = $user->find($values);
 
-    $result = App::get('database')->query($query,[$password,$email]);
-
-    if (empty($result)) {
-      echo "empty";
-    }
-
-    if (isset($result[0]->email)) {
-      print_r($result[0]->email);
-    }
+    Helpers::dd($results);
 
 
   }
 
   public function loginpage()
   {
+      $user = [ 'password' => '123456a',
+                'email' =>'Sunil.kumarya4@gmail.com' ];
 
-
-        $user = [ 'email' =>'Sunil.kumarya4@gmail.com',
-                  'password' => '123456a' ];
-
-        App::get('auth')->login($user,'logged');
+      App::get('auth')->login($user,'logged');
   }
 
   public function logged()
