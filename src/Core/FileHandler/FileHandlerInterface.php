@@ -10,6 +10,9 @@ interface FileHandlerInterface {
 
   public function getextension($file);
 
-  public function getsize($file);  
+  public function getsize($file);
+
+  public function createDir($directory, $mode);
+
 
 }

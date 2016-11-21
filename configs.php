@@ -6,10 +6,10 @@ return [
   'database' => [
 
     'dbdriver' => 'pgsql',
-    'dbname' => 'bit',
+    'dbname' => 'testdb',
     'host' => '127.0.0.1',
     'username' => 'ysk',
-    'password' => '123456a',
+    'password' => '12345678a',
     'options' => []
 
   ]
