@@ -1,6 +1,6 @@
 # A bit of everything
 
-### Trying to make a MVC framework, do not know how it will end..
+### Tried to make a MVC framework, do not know how it will end..
 
 ### My Urge to build this..
 
@@ -11,11 +11,11 @@ asked myself, will i ever try to understand WHAT and HOW.
 
 ## Overview
 
-A bit of framework which tries to simplfy creating php web projects.
+A bit of framework which tries to simplify creating php web projects.
 
 ## Usage
 
-#### Routes
+### Routes
 Define your routes at src/Core/routes.php
 
 Adding a new routes
@@ -27,23 +27,25 @@ $router->post('contact','ContactsController@save');
 ```
 'get' and 'post' are the request types, you can additionally use 'delete' & 'patch'
 
-'about' and 'contact' are the requested urls.
+'about' and 'contact' are the requested URL.
 
 'PagesController' is the name of the Controller.
 
 'about' and 'save' are the methods declared inside their controllers.
 
-'@' is used as a seperator.
+'@' is used as a separator.
+
 
 ### Controllers
 
 All controllers must be placed inside src/Controllers folder. ( A bit opinionated :) )
 
 
-#### Request
+### Request
 User request can be handled with various methods of Request class.
 
-Capture the url of the request
+Capture the URL of the request
+
 ```php
 Request::url();
 ```
@@ -57,14 +59,14 @@ Capture a specific $_GET value of the request
 ```php
 Request::query($field);
 ```
-here the $field is the name of the anticipated field.
+Here the $field is the name of the anticipated field.
 
 
 Capture a specific $_POST value of the request
 ```php
 Request::request($field);
 ```
-here the $field is the name of the anticipated field.
+Here the $field is the name of the anticipated field.
 
 
 Capture all the $_POST values of request
@@ -72,7 +74,7 @@ Capture all the $_POST values of request
 Request::all();
 ```
 
-Capture all the properties of $_FILES values of request
+Capture all the properties uploaded files
 ```php
 Request::file();
 ```
@@ -86,10 +88,10 @@ Respond as a view page
 ```php
 Response::view('viewfile',$dataToBePassed);
 ```
-*viewfile* is the name of viewfile placed in view folder
+*viewfile* is the name of placed in view folder,
 viewfile can be of names *.view.php or *.php or *.html
 
-*$dataToBePassed* is the data needs to be passed to the view
+*$dataToBePassed* is the data variable that needs to be passed to the view
 
 
 Respond with JSON data
@@ -100,7 +102,7 @@ Response::json($data);
 *$data* must be of type array
 
 
-Example of usage of request and response methods. We will try to display
+Example of the usage of request and response methods. We will try to display
 the data entered by user
 
 ```php
@@ -137,6 +139,7 @@ class OrderController
 ```
 
 ###Sessions
+
 Sessions in Bit can be manipulated with some of the methods defined in
 the **Sessions** class.
 
@@ -145,7 +148,7 @@ Store a new Session data.
 Session::set($key,$value);
 ```
 **$key** is the unique identifier of the data that can be stored in Session.
-**$value** data that needs to be stored in session data
+**$value** is the data that needs to be stored in session
 
 Retrieving Session data
 ```php
@@ -214,7 +217,7 @@ App::get('filesystem')->createDir($directoryPath, $permissions);
 
 Bit makes interaction with variety of databases easy. It uses the QueryBuilder
 class which acts as a wrapper around php's PDO class. It supports all the
-database types which is supported by PDO, you need to make sure that PDO drivers
+database types which is supported by PDO. So, you need to make sure that PDO drivers
 for the database type is installed in the system.
 
 Configurations for the database can be defined in the configs.php file,
@@ -253,9 +256,9 @@ $clauses = ['orderID' => 23, 'Customer' => 'John'];
 
 
 ###Models
-The concept of Model in MVC is still bit unclear for me. In Bit Models are like
-collaborator which deals with data of a particular table only. Feel free to add
-business logic to these.
+The concept of Model in MVC (Real World) is still bit unclear for me. In Bit Models
+are like collaborator which deals with data of a particular table only.
+Feel free to add business logic to these.
 
 Models should be placed in the Models Folder. You can extend the BaseModel class
 in your Model class to take advantage of the simple data manipulation methods.
@@ -343,8 +346,6 @@ AuthenticationInterface.
 LocalAuthentication is bound to the App Container and can be accessed by
 App::get('auth')
 
-The Methods which makes authentication easy.
-
 Log a user into the system
 
 ```php
@@ -400,7 +401,7 @@ App::get('auth')->check($redirectPath);
 **$redirectPath** is the route where user will be redirected if system finds
 that the request did not came from logged in user.
 
-This method can act as a Gaurd to restrict users from accessing resources or
+This method can act as a guard to restrict users from accessing resources or
 pages which is meant for logged in user only.
 
 Example
@@ -438,7 +439,9 @@ class UserController
 #### App Container
 
 App Container sounds overwhelming but in Bit its just a class which can saves
-various kind of values by keys.Its only purpose is to access objects easily.
+various kind of values by keys.Think of it as an associative array. Its only
+purpose is to access objects easily.
+
 Do not try to make it more complicated.
 
 New Configurations and objects can be bound to app class in the
@@ -488,6 +491,7 @@ You can bind new configurations by appending new values in configs.php
 'mail' => [
   'driver' => 'mailchimp',
   'apikey' => '124scs5$34jsd',
+  'type' => 'tsl',
     ...........................
 ]
 ```
@@ -500,4 +504,4 @@ App::bind('mail' , App::get('configs')['mail']));
 
 ```
 
-Contd..
+....more improvements underway
