@@ -80,7 +80,7 @@ Request::file();
 ```
 
 
-###Response
+### Response
 
 Bit supports two types of responses, View and JSON
 
@@ -138,7 +138,7 @@ class OrderController
 }
 ```
 
-###Sessions
+### Sessions
 
 Sessions in Bit can be manipulated with some of the methods defined in
 the **Sessions** class.
@@ -167,7 +167,7 @@ Session::clear();
 ```
 
 
-###FileStorage
+### FileStorage
 
 Bit helps us to deal with files operations easily with LocalFileHandler class.
 You can also use third party packages like flysystem, but the adapter class must
@@ -213,7 +213,7 @@ App::get('filesystem')->createDir($directoryPath, $permissions);
 **$permissions** signifies the directory permissions, its defaults to 755
 
 
-###Databases
+### Databases
 
 Bit makes interaction with variety of databases easy. It uses the QueryBuilder
 class which acts as a wrapper around php's PDO class. It supports all the
@@ -255,7 +255,7 @@ $clauses = ['orderID' => 23, 'Customer' => 'John'];
 
 
 
-###Models
+### Models
 The concept of Model in MVC (Real World) is still bit unclear for me. In Bit Models
 are like collaborator which deals with data of a particular table only.
 Feel free to add business logic to these.
@@ -335,7 +335,7 @@ $cancelOrder = ['Customer' => 'smith'];
 
 
 
-###Authentication
+### Authentication
 
 Authentication in Bit is just bare bones. LocalAuthentication class is
 responsible for handling authentication, it only uses php sessions, nothing more
@@ -436,9 +436,9 @@ class UserController
 
 
 
-#### App Container
+### App Container
 
-App Container sounds overwhelming but in Bit its just a class which can saves
+App Container sounds overwhelming but, in Bit its just a class which can saves
 various kind of values by keys.Think of it as an associative array. Its only
 purpose is to access objects easily.
 
